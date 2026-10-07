@@ -56,4 +56,4 @@ Licence: CC BY 4.0
 
 ## Project Status
 
-Environment set up and raw data added. Starting data understanding (Stage 1).
+Environment set up and raw data added. Completed stage 1 data understanding and stage 2 data cleaning 
