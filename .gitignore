@@ -11,3 +11,6 @@ __pycache__/
 
 # Generated data
 data/processed/
+
+# Personal practice notebooks
+practice/

@@ -44,6 +44,24 @@ The project will progressively cover:
 - SQL analysis
 - Machine learning
 
+## Key Findings So Far (Exploratory Analysis)
+
+| Factor | What the charts suggest |
+|---|---|
+| Previous failures | Strongest pattern: students with any past failure average below 10, vs 12.7 for those with none |
+| Study time | More weekly study time goes with higher grades (levels off above 10 hours) |
+| Parental education | Higher parental education, especially mother's, goes with higher grades |
+| School | GP students average higher than MS students (12.6 vs 11.4) |
+| Absences | Weak negative relationship (correlation ≈ -0.20) |
+
+These are associations from charts only; they are tested statistically in the next stage.
+
+![Final grade by previous failures](reports/figures/g3_by_failures.png)
+
+![Final grade by parental education](reports/figures/g3_by_parent_education.png)
+
+All charts: [`reports/figures/`](reports/figures/) · Full analysis: [`notebooks/03_eda.ipynb`](notebooks/03_eda.ipynb)
+
 ## Dataset Source
 
 
@@ -56,4 +74,9 @@ Licence: CC BY 4.0
 
 ## Project Status
 
-Environment set up and raw data added. Completed stage 1 data understanding and stage 2 data cleaning 
+- [x] Stage 1: Data understanding
+- [x] Stage 2: Data cleaning (649 → 634 students)
+- [x] Stage 3: Exploratory data analysis
+- [ ] Stage 4: Statistical hypothesis testing
+- [ ] Stage 5: SQL analysis
+- [ ] Stage 6: Machine learning
