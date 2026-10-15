@@ -44,7 +44,7 @@ The project will progressively cover:
 - SQL analysis
 - Machine learning
 
-## Key Findings So Far (Exploratory Analysis)
+## Key Findings (Exploratory Analysis)
 
 | Factor | What the charts suggest |
 |---|---|
@@ -54,13 +54,30 @@ The project will progressively cover:
 | School | GP students average higher than MS students (12.6 vs 11.4) |
 | Absences | Weak negative relationship (correlation ≈ -0.20) |
 
-These are associations from charts only; they are tested statistically in the next stage.
+These are associations from charts only; they are tested statistically below.
 
 ![Final grade by previous failures](reports/figures/g3_by_failures.png)
 
 ![Final grade by parental education](reports/figures/g3_by_parent_education.png)
 
 All charts: [`reports/figures/`](reports/figures/) · Full analysis: [`notebooks/03_eda.ipynb`](notebooks/03_eda.ipynb)
+
+## Statistical Testing Results
+
+Each pattern was tested with a main test plus a rank-based backup test (α = 0.05, Bonferroni-corrected to 0.0083 for 6 tests). Effect sizes show how much each factor matters.
+
+| Factor | Test (backup) | p-value | Effect size | Size |
+|---|---|---|---|---|
+| Previous failures | ANOVA (Kruskal-Wallis) | 2.0e-26 | η² = 0.18 | Large |
+| Mother's education | ANOVA (Kruskal-Wallis) | 1.7e-11 | η² = 0.09 | Medium |
+| Study time | ANOVA (Kruskal-Wallis) | 1.1e-09 | η² = 0.07 | Medium |
+| School (GP vs MS) | Welch's t-test (Mann-Whitney U) | 6.3e-08 | d = 0.48 | Small–medium |
+| Father's education | ANOVA (Kruskal-Wallis) | 1.3e-05 | η² = 0.04 | Small |
+| Absences | Pearson (Spearman) | 6.5e-07 | r = -0.20 | Small |
+
+**All five associations are statistically significant**, and main and backup tests agree every time. But they are not equally important: previous failures stand out, while absences and father's education are real but weak. These are associations, not causes, and each factor was tested on its own.
+
+Full analysis: [`notebooks/04_hypothesis_testing.ipynb`](notebooks/04_hypothesis_testing.ipynb)
 
 ## Dataset Source
 
@@ -77,6 +94,6 @@ Licence: CC BY 4.0
 - [x] Stage 1: Data understanding
 - [x] Stage 2: Data cleaning (649 → 634 students)
 - [x] Stage 3: Exploratory data analysis
-- [ ] Stage 4: Statistical hypothesis testing
+- [x] Stage 4: Statistical hypothesis testing
 - [ ] Stage 5: SQL analysis
 - [ ] Stage 6: Machine learning
